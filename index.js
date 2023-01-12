@@ -16,9 +16,11 @@ module.exports = {
       create: (context) => {
         const sourceCode = context.getSourceCode();
 
+        const fileName = context.getFilename();
+
         const tsLanguageService = ts.createLanguageService({
           files: {
-            "file.ts": ts.ScriptSnapshot.fromString(sourceCode.text),
+            [fileName]: ts.ScriptSnapshot.fromString(sourceCode.text),
           },
           getCompilationSettings() {
             return ts.getDefaultCompilerOptions();
@@ -41,7 +43,7 @@ module.exports = {
         });
 
         const tsSourceCodeEdits = tsLanguageService.getFormattingEditsForDocument(
-          "file.ts",
+          fileName,
           context.options[0],
         );
 
