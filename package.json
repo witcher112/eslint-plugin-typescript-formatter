@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-typescript-formatter",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "TypeScript built-in formatter for ESLint",
   "repository": {
     "type": "git",
