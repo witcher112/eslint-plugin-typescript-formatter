@@ -1,0 +1,30 @@
+{
+  "name": "eslint-plugin-typescript-formatter",
+  "version": "0.0.1",
+  "description": "TypeScript built-in formatter for ESLint",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/witcher112/eslint-plugin-typescript-formatter.git"
+  },
+  "homepage": "https://github.com/witcher112/eslint-plugin-typescript-formatter",
+  "license": "MIT",
+  "author": {
+    "name": "Tomasz Jaworski",
+    "email": "tomasz.jaworski98@gmail.com"
+  },
+  "keywords": [
+    "eslint",
+    "eslintplugin",
+    "eslint-plugin",
+    "typescript",
+    "formatter"
+  ],
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "peerDependencies": {
+    "eslint": ">=8.0.0",
+    "typescript": "*"
+  }
+}
