@@ -58,22 +58,29 @@ module.exports = {
         };
 
         for (const tsSourceCodeEdit of tsSourceCodeEdits) {
-          context.report({
-            message: "Invalid formatting",
-            loc: {
-              start: getSourceCodeLocFromTextPos(tsSourceCodeEdit.span.start),
-              end: getSourceCodeLocFromTextPos(tsSourceCodeEdit.span.start + tsSourceCodeEdit.span.length),
-            },
-            fix: function (fixer) {
-              return fixer.replaceTextRange(
-                [
-                  tsSourceCodeEdit.span.start,
-                  tsSourceCodeEdit.span.start + tsSourceCodeEdit.span.length,
-                ],
-                tsSourceCodeEdit.newText,
-              );
-            },
-          });
+          const tsSourceCodeEditOldText = sourceCode.text.slice(
+            tsSourceCodeEdit.span.start,
+            tsSourceCodeEdit.span.start + tsSourceCodeEdit.span.length,
+          );
+
+          if (tsSourceCodeEditOldText !== tsSourceCodeEdit.newText) {
+            context.report({
+              message: "Invalid formatting",
+              loc: {
+                start: getSourceCodeLocFromTextPos(tsSourceCodeEdit.span.start),
+                end: getSourceCodeLocFromTextPos(tsSourceCodeEdit.span.start + tsSourceCodeEdit.span.length),
+              },
+              fix: function (fixer) {
+                return fixer.replaceTextRange(
+                  [
+                    tsSourceCodeEdit.span.start,
+                    tsSourceCodeEdit.span.start + tsSourceCodeEdit.span.length,
+                  ],
+                  tsSourceCodeEdit.newText,
+                );
+              },
+            });
+          }
         };
 
         return {};
