@@ -67,14 +67,15 @@ Modify your `.eslintrc.json` file to include:
         "placeOpenBraceOnNewLineForControlBlocks": false,
         "insertSpaceBeforeTypeAnnotation": false,
         "indentMultiLineObjectLiteralBeginningOnBlankLine": false,
-        "semicolons": "insert"
+        "semicolons": "insert",
+        "indentSwitchCase": true
       }
     ]
   }
 }
 ```
 
-Rule options schema is available in [TypeScript source code](https://github.com/microsoft/TypeScript/blob/4076ff8fd6c91c07f6baefa0843e22e33168e164/src/server/protocol.ts#L3427).
+Rule options schema is available in [TypeScript source code](https://github.com/microsoft/TypeScript/blob/v5.6.2/src/services/types.ts#L1184).
 
 ## Credits
 
